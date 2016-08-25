@@ -30,7 +30,6 @@ const create = (gameWrap) => () => {
 
   ledge.body.immovable = true;
 
-
 };
 
 export default create;

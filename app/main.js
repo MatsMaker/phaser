@@ -2,6 +2,8 @@ require('p2');
 require('pixi.js');
 const Phaser = require('phaser');
 
+require('./styles/main.scss');
+
 
 import preload from './preload';
 import create from './create';

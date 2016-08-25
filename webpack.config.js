@@ -17,6 +17,9 @@ module.exports = {
   },
   module: {
     loaders: [{
+      test: /.scss$/,
+      loaders: ["style", "css?sourceMap", "sass?sourceMap"]
+    }, {
       test: /.(jpg|png)$/,
       loader: 'file',
       // include: path.join(__dirname, 'assets')
