@@ -2,14 +2,19 @@ require('p2');
 require('pixi.js');
 const Phaser = require('phaser');
 
-let game = new Phaser.Game(800, 600, Phaser.AUTO, '', {
-  preload: preload,
-  create: create,
-  update: update
+
+import preload from './preload';
+import create from './create';
+import update from './update';
+
+let gameWrap = {
+  Phaser: Phaser,
+};
+
+gameWrap.game = new Phaser.Game(800, 600, Phaser.AUTO, '', {
+  preload: preload(gameWrap),
+  create: create(gameWrap),
+  update: update(gameWrap)
 });
 
-function preload() {}
-
-function create() {}
-
-function update() {}
+export default gameWrap;

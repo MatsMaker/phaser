@@ -1,3 +1,5 @@
+'use strict';
+
 var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -15,6 +17,17 @@ module.exports = {
   },
   module: {
     loaders: [{
+      test: /.(jpg|png)$/,
+      loader: 'file',
+      // include: path.join(__dirname, 'assets')
+    }, {
+      test: /.js$/,
+      exclude: /node_modules/,
+      loader: 'babel-loader',
+      query: {
+        presets: ['es2015']
+      }
+    }, {
       test: /p2.js/,
       loader: "script"
     }, {
