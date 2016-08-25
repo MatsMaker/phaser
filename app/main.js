@@ -1,22 +1,19 @@
-require('p2');
-require('pixi.js');
-const Phaser = require('phaser');
-
 require('./styles/main.scss');
 
-
+import GameWrap from './GameWrap';
 import preload from './preload';
 import create from './create';
 import update from './update';
 
-let gameWrap = {
-  Phaser: Phaser,
-};
 
-gameWrap.game = new Phaser.Game(800, 600, Phaser.AUTO, '', {
-  preload: preload(gameWrap),
-  create: create(gameWrap),
-  update: update(gameWrap)
-});
+const gameWrap = new GameWrap();
 
-export default gameWrap;
+gameWrap.initGame([800,
+  600,
+  gameWrap.Phaser.AUTO,
+  '', {
+    preload: preload(gameWrap),
+    create: create(gameWrap),
+    update: update(gameWrap)
+  }
+]);
