@@ -1,12 +1,15 @@
-export function startSystem(gameWrap) {
-  gameWrap.game.physics.startSystem(gameWrap.Phaser.Physics.ARCADE);
-}
+import Phaser from '../Phaser'
 
-export function enable(gameWrap, object) {
-  gameWrap.game.physics.arcade.enable(object);
-}
+class ArcadePhysic {
 
-export default {
-  startSystem,
-  enable
-}
+  constructor(game) {
+    this.game = game;
+  }
+
+  startSystem() {
+    this.game.physics.startSystem(Phaser.Physics.ARCADE);
+  }
+
+};
+
+export default ArcadePhysic;
