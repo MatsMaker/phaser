@@ -1,19 +1,16 @@
-require('./styles/main.scss');
+import Phaser from './Phaser';
 
-import GameWrap from './GameWrap';
-import preload from './preload';
-import create from './create';
-import update from './update';
+import GameState from './GameState';
 
 
-const gameWrap = new GameWrap();
+class Game extends Phaser.Game {
 
-gameWrap.initGame([800,
-  600,
-  gameWrap.Phaser.AUTO,
-  '', {
-    preload: preload(gameWrap),
-    create: create(gameWrap),
-    update: update(gameWrap)
-  }
-]);
+	constructor() {
+		super(800, 600, Phaser.AUTO, 'content', null);
+		this.state.add('GameState', GameState, false);
+		this.state.start('GameState');
+	}
+
+}
+
+new Game();
