@@ -7,7 +7,8 @@ class Sky extends Phaser.Sprite {
   }
 
   add() {
-    this.game.add.sprite(0, 0, 'sky');
+    let object = this.game.add.sprite(0, 0, 'sky');
+    object.scale.set(2);
   }
 
 }
