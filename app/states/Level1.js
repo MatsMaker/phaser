@@ -16,6 +16,7 @@ import Stars from '../objects/Stars';
 import ScoreText from '../objects/ScoreText';
 import Baddie from '../objects/Baddie';
 import Slub from '../objects/Slug';
+import Firstaid from '../objects/Firstaid';
 
 import Core from '../Core';
 
@@ -36,6 +37,9 @@ class Level1 {
 
     this.objects.map = new Map(this);
     this.objects.map.preload();
+
+    this.objects.firstaid = new Firstaid(this);
+    this.objects.firstaid.preload();
   }
 
   create() {
@@ -68,13 +72,17 @@ class Level1 {
     this.objects.slub = new Slub(this.game);
     this.objects.slub.add();
     this.objects.slub.moveLeft();
+
+    this.objects.firstaid.create();
   }
 
   update() {
     this.physics.arcade.collide(this.objects.player.object, this.objects.layer);
+    this.physics.arcade.collide(this.objects.player.object, this.objects.firstaid);
     this.physics.arcade.collide(this.objects.stars.group, this.objects.layer);
     this.physics.arcade.collide(this.objects.baddie.object, this.objects.layer);
     this.physics.arcade.collide(this.objects.slub.object, this.objects.layer);
+    this.physics.arcade.collide(this.objects.firstaid, this.objects.layer);
 
     this.physics.arcade.overlap(this.objects.player.object, this.objects.stars.group, this.core.playerCollideToStar, null, this);
 
