@@ -6,7 +6,7 @@ class Core {
 
   playerCollideToStar(player, star) {
     star.kill();
-    this.game.objects.scoreText.increment();
+    this.objects.scoreText.increment();
   }
 
 }
