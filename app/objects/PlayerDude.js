@@ -7,7 +7,8 @@ class PlayerDude {
 
 
   add() {
-    this.object = this.game.add.sprite(32, this.game.world.height - 150, 'dude');
+    let pointY = this.game.world.height - 128;
+    this.object = this.game.add.sprite(128, pointY, 'dude');
 
     //  We need to enable physics on the player
     this.game.physics.arcade.enable(this.object);
@@ -41,13 +42,13 @@ class PlayerDude {
     }
 
     //  Allow the player to jump if they are touching the ground.
-    if (cursors.up.isDown && this.object.body.touching.down) {
+    if (cursors.up.isDown && this.object.body.blocked.down) {
       this.object.body.velocity.y = -350;
     }
 
     //  Allow the player to jump if they are touching the ground.
     if (cursors.down.isDown &&
-      !this.object.body.touching.down &&
+      !this.object.body.blocked.down &&
       this.object.body.velocity.y < 0) {
       this.object.body.velocity.y = 0;
     }

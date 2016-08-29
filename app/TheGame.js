@@ -9,7 +9,7 @@ import Level1 from './states/Level1';
 class TheGame {
 
   constructor() {
-    this._game = new Phaser.Game(800, 600, Phaser.CONVAS, '');
+    this._game = new Phaser.Game(800, 512, Phaser.CONVAS, '');
   }
 
   start() {

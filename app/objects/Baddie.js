@@ -33,10 +33,10 @@ class Baddie {
   }
 
   initAI() {
-    if (this.object.body.touching.left) {
+    if (this.object.body.blocked.left) {
       this.moveRight();
     }
-    if (this.object.body.touching.right) {
+    if (this.object.body.blocked.right) {
       this.moveLeft();
     }
   }

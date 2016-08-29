@@ -1,5 +1,6 @@
 import Phaser from '../Phaser';
 
+
 class Preloader {
 
   constructor() {

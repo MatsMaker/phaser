@@ -4,10 +4,6 @@ const sly = require('../assets/sky.png');
 
 class Boot {
 
-  constructor(game) {
-    // super(game);
-  }
-
   init() {
     this.input.maxPointers = 1;
     this.stage.disableVisibilityChange = true;
