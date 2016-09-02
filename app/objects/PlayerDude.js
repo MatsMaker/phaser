@@ -5,7 +5,6 @@ class PlayerDude {
     this.object;
   }
 
-
   add() {
     let pointY = this.game.world.height - 128;
     this.object = this.game.add.sprite(128, pointY, 'dude');
@@ -19,8 +18,22 @@ class PlayerDude {
     this.object.body.collideWorldBounds = true;
 
     //  Our two animations, walking left and right.
-    this.object.animations.add('left', [0, 1, 2, 3], 10, true);
-    this.object.animations.add('right', [5, 6, 7, 8], 10, true);
+    this.object.animations.add('left', [
+      0, 1, 2, 3
+    ], 10, true);
+    this.object.animations.add('right', [
+      5, 6, 7, 8
+    ], 10, true);
+
+    // this.object.body.onCollide = new Phaser.Signal();
+  }
+
+  reset() {
+    const self = this;
+    return () => {
+      let pointY = this.game.world.height - 128;
+      this.object.reset(128, pointY);
+    }
   }
 
   initControl() {
@@ -47,9 +60,7 @@ class PlayerDude {
     }
 
     //  Allow the player to jump if they are touching the ground.
-    if (cursors.down.isDown &&
-      !this.object.body.blocked.down &&
-      this.object.body.velocity.y < 0) {
+    if (cursors.down.isDown && !this.object.body.blocked.down && this.object.body.velocity.y < 0) {
       this.object.body.velocity.y = 0;
     }
   }

@@ -7,7 +7,7 @@ class Slug {
 
 
   add() {
-    this.object = this.game.add.sprite(this.game.world.width - 96, this.game.world.height - 350, 'slug');
+    this.object = this.game.add.sprite(this.game.world.width / 2 - 96, this.game.world.height - 350, 'slug');
 
     //  We need to enable physics on the player
     this.game.physics.arcade.enable(this.object);

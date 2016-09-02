@@ -5,8 +5,8 @@ const dudeImg = require('../assets/characters/dude.png');
 const baddieImg = require('../assets/characters/baddie.png');
 const slugImg = require('../assets/characters/slug.png');
 
-// http://www.characterdesignpage.com/blog/justice-league-task-force-sprites
-// const origImg = require('./assets/characters/orig.png');
+// http://www.characterdesignpage.com/blog/justice-league-task-force-sprites const origImg =
+// require('./assets/characters/orig.png');
 
 import ArcadePhysic from '../physics/ARCADE';
 import Sky from '../objects/Sky';
@@ -19,7 +19,6 @@ import Slub from '../objects/Slug';
 import Firstaid from '../objects/Firstaid';
 
 import Core from '../Core';
-
 
 class Level1 {
 
@@ -82,9 +81,14 @@ class Level1 {
     this.physics.arcade.collide(this.objects.stars.group, this.objects.layer);
     this.physics.arcade.collide(this.objects.baddie.object, this.objects.layer);
     this.physics.arcade.collide(this.objects.slub.object, this.objects.layer);
+
     this.physics.arcade.collide(this.objects.firstaid, this.objects.layer);
+    // this.physics.arcade.collide(this.objects.firstaid, this.objects.player.object);
+
+    this.physics.arcade.collideHandler(this.objects.firstaid, this.objects.player.object, e => console.log(e), this.core.playerCollideHandleFirstaid);
 
     this.physics.arcade.overlap(this.objects.player.object, this.objects.stars.group, this.core.playerCollideToStar, null, this);
+    this.physics.arcade.overlap(this.objects.slub.object, this.objects.player.object, this.objects.player.reset())
 
     this.objects.player.initControl();
 

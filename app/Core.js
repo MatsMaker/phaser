@@ -9,6 +9,10 @@ class Core {
     this.objects.scoreText.increment();
   }
 
+  playerCollideHandleFirstaid(e, data, d) {
+    console.warn(e, data, d);
+  }
+
 }
 
 export default Core;
