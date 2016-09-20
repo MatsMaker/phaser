@@ -4,6 +4,7 @@ const platformImg = require('../assets/platform.png');
 const dudeImg = require('../assets/characters/dude.png');
 const baddieImg = require('../assets/characters/baddie.png');
 const slugImg = require('../assets/characters/slug.png');
+const diamondImg = require('../assets/diamond.png');
 
 // http://www.characterdesignpage.com/blog/justice-league-task-force-sprites const origImg =
 // require('./assets/characters/orig.png');
@@ -29,6 +30,7 @@ class Level1 {
     this.load.image('sky', skyImg);
     this.load.image('star', starImg);
     this.load.image('ground', platformImg);
+    this.load.image('diamond', diamondImg);
 
     this.load.spritesheet('baddie', baddieImg, 32, 32);
     this.load.spritesheet('dude', dudeImg, 32, 48);
